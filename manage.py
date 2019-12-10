@@ -4,7 +4,7 @@ import os
 import sys
 
 
-def main():
+def main(): #teste new commit git 2
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Agenda20.settings')
     try:
         from django.core.management import execute_from_command_line
