@@ -1,0 +1,13 @@
+<! -- Pagina com modelo de cabeçalho e rodapé -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "model-header.html" %}  <! -- Chama o arquivo com cabeçalho -->
+</head>
+<body>
+    {% block content %} {% endblock %}
+    {% include "model-footer.html" %}  <! -- Desta forma, deixa o bloco entre o header / footer, mantendo um padrão p/ page -->
+</body>
+</html>

@@ -24,4 +24,9 @@ class Migration(migrations.Migration):
             name='data_evento',
             field=models.DateTimeField(verbose_name='Data do Evento'),
         ),
+        # migrations.AlterField (
+        #     model_name='eventos',
+        #     name='local_evento',
+        #     field=models.DateTimeField ( verbose_name='Local do Evento' ),
+        # ),
     ]

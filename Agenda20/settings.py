@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Agenda20.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #Comando que insere diretório de templates, que contém a page Agenda20.html
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

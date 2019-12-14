@@ -1,0 +1,12 @@
+<! -- Para inserir comentários: começa e finaliza por -->
+{% extends "model-page.html" %}
+{% block content %}
+
+    <h2>Agendamentos</h2>
+
+    <ul style="font-size: 18px">
+        {% for evento in eventos %} <! -- Cria um FOR para listar os eventos coletados em 'eventos' e insere um pin bullet -->
+            <li>{{evento.titulo}} - {{evento.get_data_evento}}</li> <! -- Busca a função get_data_evento com a data formatada em dd/mm/YYYY -->
+        {% endfor %}
+     </ul>
+{% endblock %}
