@@ -1,14 +1,41 @@
-from django.shortcuts import render #, redirect
+from django.shortcuts import render, redirect
 from core.models import Eventos #
+from django.contrib.auth.decorators import login_required  #Importa o módulo de login do django (já vem pronto, só precisa fazer o set up)
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
 
 # Create your views here.
 
 # def index(request):
 #     return redirect(request, '/Agenda20/') #Função que redireciona a página para a /Agenda20/ quando não há nada inserido, tipo: http://127.0.0.1:8000/
 
+def login_user(request): #Adiciona função login
+    return render(request, 'login.html')
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')
+
+def submit_login(request): #Adiciona função para submeter o login (com user e senha)
+    if request.POST:
+        username = request.POST.get('username') #POST deve ser em MAIÚSCULAS!
+        password = request.POST.get('password')
+        usuario = authenticate(username=username, password=password)
+        if usuario is not None:
+            login(request, usuario)
+            return redirect('/')
+        else:
+            messages.error(request, "Usuário ou senha inválidos! Tente o Login novamente.")
+    return  redirect('/')
+
+@login_required(login_url='/login/') #decorador que inicia uma page pelo login (se não está autenticado, a page não abre)
+
 def lista_eventos (request):
+    usuario = request.user
     #eventos = Eventos.objects.get(id=1) #Pega o 1o evento da lista
-    eventos = Eventos.objects.all() #Pega todos eventos da lista
+    #eventos = Eventos.objects.all() #Pega todos eventos da lista
+    eventos = Eventos.objects.filter(usuario=usuario) #Filtra os eventos pelo login do usuário
     #usuario = request.user
     #eventos = Eventos.objects.filter(usuario=usuario) #Pega eventos de usuário indicado
     dados = {'eventos' :eventos}

@@ -22,6 +22,9 @@ from django.views.generic import RedirectView #Redireciona para a page /Agenda20
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Agenda20/', views.lista_eventos), #Adicionando o path da Agenda20.html nas urls
-    #path('', views.index) #Redireciona para a função index, que leva para /Agenda20/ qndo vazio ' '
-    path('', RedirectView.as_view(url='/Agenda20/')) #Outra forma de levar p/ page /Agenda20/, qndo vazio ' '
+    #path('', views.index), #Redireciona para a função index, que leva para /Agenda20/ qndo vazio ' '
+    path('', RedirectView.as_view(url='/Agenda20/')), #Outra forma de levar p/ page /Agenda20/, qndo vazio ' '
+    path('login/', views.login_user), #Adiciona path para login quando não houver seção ativa de usuário
+    path('login/submit', views.submit_login), #Adiciona ação de submit no login
+    path('logout/', views.logout_user)
 ]
