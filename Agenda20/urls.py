@@ -26,5 +26,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/Agenda20/')), #Outra forma de levar p/ page /Agenda20/, qndo vazio ' '
     path('login/', views.login_user), #Adiciona path para login quando não houver seção ativa de usuário
     path('login/submit', views.submit_login), #Adiciona ação de submit no login
+    path('Agenda20/evento/', views.evento),
+    path('Agenda20/evento/submit', views.submit_evento),
     path('logout/', views.logout_user)
 ]
