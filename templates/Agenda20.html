@@ -10,7 +10,11 @@
 
     <ul style="font-size: 18px">
         {% for evento in eventos %} <! -- Cria um FOR para listar os eventos coletados em 'eventos' e insere um pin bullet -->
-            <li>{{evento.titulo}} - {{evento.get_data_evento}}</li> <! -- Busca a função get_data_evento com a data formatada em dd/mm/YYYY -->
+            <li>
+                {{evento.titulo}} - {{evento.get_data_evento}}
+                ( <a href="evento/?id={{ evento.id }}">Editar</a>
+                / <a href="evento/delete/{{ evento.id }}/">Excluir</a> )
+            </li> <! -- Busca a função get_data_evento com a data formatada em dd/mm/YYYY -->
         {% endfor %}
      </ul>
 {% endblock %}

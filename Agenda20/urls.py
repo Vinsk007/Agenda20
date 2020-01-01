@@ -28,5 +28,6 @@ urlpatterns = [
     path('login/submit', views.submit_login), #Adiciona ação de submit no login
     path('Agenda20/evento/', views.evento),
     path('Agenda20/evento/submit', views.submit_evento),
+    path('Agenda20/evento/delete/<int:id_evento>/', views.delete_evento),
     path('logout/', views.logout_user)
 ]
