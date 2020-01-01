@@ -11,9 +11,13 @@
     <ul style="font-size: 18px">
         {% for evento in eventos %} <! -- Cria um FOR para listar os eventos coletados em 'eventos' e insere um pin bullet -->
             <li>
+                <div style={% if evento.get_evento_atrasado %}
+                "color:red"
+                {% endif %}>
                 {{evento.titulo}} - {{evento.get_data_evento}}
                 ( <a href="evento/?id={{ evento.id }}">Editar</a>
                 / <a href="evento/delete/{{ evento.id }}/">Excluir</a> )
+                </div>
             </li> <! -- Busca a função get_data_evento com a data formatada em dd/mm/YYYY -->
         {% endfor %}
      </ul>

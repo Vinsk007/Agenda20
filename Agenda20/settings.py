@@ -26,9 +26,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*7ovv$)rk=y)v3*8q)8&^ke(vonjco5!)9@q275da3)p0t9s#='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False #Deixa a interface Pagenotfound 404 mais amigável para o usuário
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] #Deixa a interface Pagenotfound 404 mais amigável para o usuário
 
 
 # Application definition
@@ -107,15 +109,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+#TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+#USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
